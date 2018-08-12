@@ -24,7 +24,7 @@ class App extends Component {
   render() {
     return (
       <div className="App" id={this.state.selected}>
-        <h1>Herbata czeka</h1>
+        <h1 className="App-title" >Herbata czeka</h1>
         <CheckTea selected = {this.state.selected} clickfunc = {this.handleClick}/>
         <Timer />
       </div>
