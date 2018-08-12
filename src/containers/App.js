@@ -8,13 +8,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      selected: 'black',
+      selected: 'Black',
     };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    console.log('hi')
+  handleClick(t) {
+    this.setState({selected: t.target.innerHTML})
   }
 
   compnentDidMount() {
@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" id={this.state.selected}>
         <h1>Herbata czeka</h1>
         <CheckTea selected = {this.state.selected} clickfunc = {this.handleClick}/>
         <Timer />

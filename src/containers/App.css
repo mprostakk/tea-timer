@@ -16,3 +16,17 @@
 .App-intro {
   font-size: large;
 }
+
+#Black {
+  background: black;
+  color: white;
+}
+
+#White {
+  background: white;
+  color: black;
+}
+
+#Green {
+  background: lightgreen;
+}
