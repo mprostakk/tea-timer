@@ -7,7 +7,22 @@ class Timer extends Component {
     super(props);
 
     this.state = {
+      on: false,
+    }
+  }
 
+  changeButton() {
+    this.setState({
+      on: !this.state.on
+    })
+  }
+
+  giveName() {
+    if(this.state.on === false){
+      return 'Start';
+    }
+    else {
+      return 'Stop';
     }
   }
 
@@ -15,7 +30,7 @@ class Timer extends Component {
     return (
       <div>
         <h3>Timer goes here</h3>
-        <Start />
+        <Start ifon={this.changeButton} name = {this.giveName()}/>
       </div>
     )
   }
