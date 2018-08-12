@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Card = () => {
+const Card = ({clickfunc, name}) => {
   return (
-    <h2>Card goes here</h2>
+    <div onClick={clickfunc} className="dtc tc pv4 bg-black-05">
+      {name}
+    </div>
   )
 }
 
