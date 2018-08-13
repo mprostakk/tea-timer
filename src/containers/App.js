@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CheckTea from '../components/CheckTea'
 import Timer from '../components/Timer'
 import './App.css';
-import teainfo from '../teainfo';
 
 class App extends Component {
   constructor() {
@@ -18,15 +17,14 @@ class App extends Component {
   }
 
   compnentDidMount() {
-    this.setState({info: teainfo})
   }
 
   render() {
     return (
       <div className="App" id={this.state.selected}>
-        <h1 className="App-title" >Herbata czeka</h1>
+        {/* <h1 className="App-title" >Herbata czeka</h1> */}
         <CheckTea selected = {this.state.selected} clickfunc = {this.handleClick}/>
-        <Timer />
+        <Timer selected = {this.state.selected}/>
       </div>
     );
   }
