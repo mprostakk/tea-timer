@@ -18,8 +18,8 @@
 
 const teainfo = {
   'Black': {
-    temp: '75 - 90°C',
-    time: 90,
+    temp: '99°C',
+    time: 150,
   },
   'Green': {
     temp: '75 - 90°C',
