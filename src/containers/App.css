@@ -25,3 +25,12 @@
 #Green {
   background: lightgreen;
 }
+
+.info {
+  color: black;
+  margin: auto;
+  padding: 20px 0;
+  width: 200px;
+  border-radius: 15px;
+  background: lightgrey;
+}

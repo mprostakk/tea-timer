@@ -34,7 +34,7 @@ class Timer extends Component {
 
   render () {
     return (
-      <div>
+      <div className="db">
         <TimeInfo time={teainfo[this.props.selected].time}/>
         <TempInfo temp={teainfo[this.props.selected].temp}/>
         <Start ifon={this.changeButton} name = {this.giveName()}/>
