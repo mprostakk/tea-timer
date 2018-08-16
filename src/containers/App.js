@@ -23,7 +23,7 @@ class App extends Component {
     return (
       <div className="App" id={this.state.selected}>
         {/* <h1 className="App-title" >Herbata czeka</h1> */}
-        <div class="cont">
+        <div className="cont">
           <h1>The only tea timer you need.</h1>
         </div>
 
