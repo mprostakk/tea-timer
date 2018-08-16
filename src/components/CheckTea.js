@@ -6,7 +6,7 @@ const CheckTea = ({selected , clickfunc}) => {
     <section className="sec1">
       <h1>Pick your tea</h1>
       <div className="cont">
-        <Card clickfunc={clickfunc} name="Green" />
+        <Card clickfunc={clickfunc} name="Green" myid=""/>
         <Card clickfunc={clickfunc} name="Black" />
         <Card clickfunc={clickfunc} name="White" />
       </div>
