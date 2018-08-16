@@ -5,7 +5,7 @@ import TempInfo from './TempInfo';
 import './Timer.css';
 import teainfo from '../teainfo';
 
-const prettyMs = require('pretty-ms');
+// const prettyMs = require('pretty-ms');
 
 class Timer extends Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class Timer extends Component {
         </div>
 
         <div>
-          <h3>timer: {prettyMs(this.state.time)}</h3>
+          <h3>timer: {(this.state.time)}</h3>
           {start}
           {resume}
           {stop}
