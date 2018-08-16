@@ -3,8 +3,10 @@ import React from 'react';
 const TempInfo = ({temp}) => {
   return (
     <div>
-      <h3>Tempature:</h3>
-      <h2 className = "info">{temp}</h2>
+      <h1>The ideal tempature is:</h1>
+      <div className="temp">
+        <h3 className = "info">{temp}</h3>
+      </div>
     </div>
 
   )

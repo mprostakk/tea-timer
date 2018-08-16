@@ -3,8 +3,10 @@ import React from 'react';
 const TimeInfo = ({time}) => {
   return (
     <div>
-      <h3>Time:</h3>
-      <h2 className="info">{time}</h2>
+      <h1>The perfect time is:</h1>
+      <div className="temp">
+        <h3 className="info">{time}</h3>  
+      </div>
     </div>
   )
 }

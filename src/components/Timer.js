@@ -39,6 +39,7 @@ class Timer extends Component {
           <TimeInfo time={teainfo[this.props.selected].time}/>
           <TempInfo temp={teainfo[this.props.selected].temp}/>
         </div>
+        
         <Start ifon={this.changeButton} name = {this.giveName()}/>
       </section>
     )

@@ -4,10 +4,10 @@ import './Card.css';
 const Card = ({clickfunc, name}) => {
   return (
     <div onClick={clickfunc}
-      className= "col white"
+      className= "col white my-button"
       id={name}
       value={name} >
-      <h3>{name}</h3>
+      {name}
     </div>
   )
 }
