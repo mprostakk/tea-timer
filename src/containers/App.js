@@ -6,6 +6,7 @@ import './App.css';
 class App extends Component {
   constructor() {
     super();
+    this.childTimer = React.createRef();
     this.state = {
       selected: 'Black',
     };
@@ -13,7 +14,8 @@ class App extends Component {
   }
 
   handleClick(t) {
-    this.setState({selected: t.target.innerHTML})
+    this.setState({selected: t.target.innerHTML});
+    this.child.appUpdate();
   }
 
   compnentDidMount() {
@@ -28,7 +30,7 @@ class App extends Component {
         </div>
 
         <CheckTea selected = {this.state.selected} clickfunc = {this.handleClick}/>
-        <Timer selected = {this.state.selected}/>
+        <Timer onRef={ref => (this.child = ref)} selected={this.state.selected} />
 
         <footer>
             <p>

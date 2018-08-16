@@ -5,72 +5,84 @@ import TempInfo from './TempInfo';
 import './Timer.css';
 import teainfo from '../teainfo';
 
-// const prettyMs = require('pretty-ms');
-
 class Timer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      time: 0,
-      isOn: false,
-      start: 0
-    }
+      time: {},
+      seconds: 5
+    };
+    this.timer = 0;
+  }
+
+  secondsToTime = (secs) => {
+    let divisor_for_minutes = secs % (60*60);
+    let minutes = Math.floor(divisor_for_minutes / 60);
+
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
+
+    let obj = {
+      "m": minutes,
+      "s": seconds
+    };
+    return obj;
+  }
+
+  componentDidMount() {
+    let timeLeftVar = this.secondsToTime(this.state.seconds);
+    this.setState({ time: timeLeftVar })
+
+    this.props.onRef(this);
+  }
+
+  compnentWillUnmount() {
+    this.props.onRef(undefined);
   }
 
   startTimer = () => {
-    this.setState({
-      isOn: true,
-      time: this.state.time,
-      start: Date.now() - this.state.time
-    })
-    this.timer = setInterval(() => this.setState({
-      time: Date.now() - this.state.start
-    }), 1);
+    if (this.timer === 0) {
+      this.timer = setInterval(this.countDown, 1000);
+    }
   }
 
-  stopTimer = () => {
+  countDown = () => {
+    let seconds = this.state.seconds - 1;
     this.setState({
-      isOn: false
+      time: this.secondsToTime(seconds),
+      seconds: seconds,
     })
+
+    if(seconds === 0) {
+      clearInterval(this.timer);
+    }
+  }
+
+  appUpdate = () => {
     clearInterval(this.timer);
-  }
+    this.timer = 0;
+    this.setState({
+      // time: this.secondsToTime(teainfo[this.props.selected].sec),
+      seconds: teainfo[this.props.selected.sec]
+    })
 
-  resetTimer = () => {
-    this.setState({time: 0, isOn: false})
+    // let timeLeftVar = this.secondsToTime((teainfo[this.props.selected.sec]));
+    // this.setState({ time: timeLeftVar })
   }
-
 
   render () {
-    let start = (this.state.time === 0 ) ?
-    <button onClick={this.startTimer}>Start</button> :
-    null
-
-    let stop = (this.state.time === 0  || !this.state.isOn) ?
-    null :
-    <button onClick={this.stopTimer}>Stop</button>
-
-    let resume = (this.state.time === 0 || this.state.isOn) ?
-    null :
-    <button onClick={this.startTimer}>Resume</button>
-
-    let reset = (this.state.time === 0 || this.state.isOn) ?
-    null :
-    <button onClick={this.resetTimer}>Reset</button>
-
     return (
       <section className = "sec2">
         <div className="cont cont2">
           <TimeInfo time={teainfo[this.props.selected].time}/>
           <TempInfo temp={teainfo[this.props.selected].temp}/>
         </div>
-
         <div>
-          <h3>timer: {(this.state.time)}</h3>
-          {start}
-          {resume}
-          {stop}
-          {reset}
+          <button onClick={this.startTimer}>Start</button>
+          <div>
+            m: {this.state.time.m} s: {this.state.time.s}
+          </div>
         </div>
 
         {/* <Start ifon="" name = "Start"/> */}
