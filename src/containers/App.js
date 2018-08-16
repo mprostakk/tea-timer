@@ -21,14 +21,21 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" id={this.state.selected}>
+      <div className="App">
         {/* <h1 className="App-title" >Herbata czeka</h1> */}
         <div className="cont">
-          <h1>The only tea timer you need.</h1>
+          <h1 id="header">The only tea timer you need.</h1>
         </div>
 
         <CheckTea selected = {this.state.selected} clickfunc = {this.handleClick}/>
         <Timer selected = {this.state.selected}/>
+
+        <footer>
+            <p>
+              Check this project out on
+              <a href="https://github.com/mprostakk/tea-timer"><strong>Github</strong></a>
+            </p>
+        </footer>
       </div>
     );
   }

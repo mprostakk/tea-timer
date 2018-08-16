@@ -2,6 +2,13 @@
   text-align: center;
 }
 
+#header {
+  margin: 0 10px;
+}
+
+.sec2 h1 {
+  margin: 0 10px;
+}
 body {
   margin: 0;
   font-family: 'Lato', sans-serif;
@@ -14,7 +21,7 @@ body {
 }
 .col {
   background: lightgrey;
-  margin: 10px 20px;
+  margin: 10px 3px;
   width: 200px;
   padding: 0px;
   border-radius: 6px;
@@ -118,10 +125,6 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   color: white;
 }
 
-footer {
-  height:200px;
-}
-
 .timer {
   width: 200px;
   border: 1px solid #ccc;
@@ -141,10 +144,6 @@ footer {
   margin-top: 200px;
 }
 
-footer .col {
-  height: 150px;
-  background: 0;
-}
 .button1 {
   margin: 40px 0px;
 }
@@ -155,4 +154,22 @@ footer .col {
   color : black;
   font-size: 1.5rem;
   cursor: pointer;
+  transition: all 0.5s;
+  height: 70px;
+}
+
+.my-button:hover {
+  transition: all 0.5s;
+  font-size: 1.6rem;
+}
+
+.sec1 {
+  padding: 0 10px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: #4078c0;
+  text-decoration: none;
+  margin-left: 5px;
 }
