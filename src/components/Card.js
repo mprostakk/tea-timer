@@ -4,10 +4,10 @@ import './Card.css';
 const Card = ({clickfunc, name}) => {
   return (
     <div onClick={clickfunc}
-      className= "dtc tc pv4 bg-black-05 f2 lh-title"
+      className= "col white"
       id={name}
       value={name} >
-      {name}
+      <h3>{name}</h3>
     </div>
   )
 }

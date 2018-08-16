@@ -2,35 +2,149 @@
   text-align: center;
 }
 
-.App-title {
+body {
   margin: 0;
-  padding: 40px 0px;
-  font-size: 2.5em;
+  font-family: 'Lato', sans-serif;
+}
+.cont {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.col {
+  background: lightgrey;
+  margin: 10px 20px;
+  width: 200px;
+  padding: 0px;
+  border-radius: 6px;
 }
 
-.App-intro {
-  font-size: large;
+.green {
+  color: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a4b357+0,75890c+100;Olive+3D+%233 */
+background: #a4b357; /* Old browsers */
+background: -moz-linear-gradient(top, #a4b357 0%, #75890c 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #a4b357 0%,#75890c 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #a4b357 0%,#75890c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a4b357', endColorstr='#75890c',GradientType=0 ); /* IE6-9 */
 }
 
-#Black {
-  background: black;
+.black {
+  color: white;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+background: #45484d; /* Old browsers */
+background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #45484d 0%,#000000 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #45484d 0%,#000000 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+.shadow {
+  -moz-box-shadow:    1px 1px 3px 4px #ccc;
+  -webkit-box-shadow: 1px 1px 3px 4px #ccc;
+  box-shadow:         1px 1px 10px 4px #ccc;
+}
+
+.white {
+  color: black;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+.sec1 {
+  text-align: center;
+  color: white;
+  height: 400px;
+  margin-top: 60px;
+  background-color: #000000;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23222' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.sec1 h1 , .sec2 h1 {
+  padding-top: 30px;
+}
+
+.sec2 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.temp {
+  border: 1px solid #ccc;
+  background: white;
+  width: 200px;
+  margin: auto;
+  border-radius: 6px;
+  margin-top: 40px;
+}
+
+.cont2 {
+  flex-wrap: wrap;
+}
+
+.sec3 {
+  text-align: center;
+  padding-top: 0px;
+  margin-top: 0px;
+  height: 200px;
+}
+
+.button {
+  border: 4px solid green;
+  color: green;
+  padding: 10px 60px;
+  border-radius: 30px;
+  font-size: 2rem;
+  transition: all 0.25s ease;
+}
+
+.button:hover {
+  color:white;
+  background: green;
+}
+
+.b-red {
+  border: 4px solid red;
+  color: red;
+}
+
+.b-red:hover {
+  background: red;
   color: white;
 }
 
-#White {
-  background: white;
-  color: black;
+footer {
+  height:200px;
 }
 
-#Green {
-  background: lightgreen;
-}
-
-.info {
-  color: black;
-  margin: auto;
-  padding: 20px 0;
+.timer {
   width: 200px;
-  border-radius: 15px;
-  background: lightgrey;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 2rem;
+  height: 165px;
+  padding-top:35px;
+  maring-bottom: 40px;
+}
+
+.buttons {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+footer {
+  margin-top: 200px;
+}
+
+footer .col {
+  height: 150px;
+  background: 0;
+}
+.button1 {
+  margin: 40px 0px;
 }

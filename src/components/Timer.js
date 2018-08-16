@@ -34,11 +34,13 @@ class Timer extends Component {
 
   render () {
     return (
-      <div className="db">
-        <TimeInfo time={teainfo[this.props.selected].time}/>
-        <TempInfo temp={teainfo[this.props.selected].temp}/>
+      <section className = "sec2">
+        <div className="cont cont2">
+          <TimeInfo time={teainfo[this.props.selected].time}/>
+          <TempInfo temp={teainfo[this.props.selected].temp}/>
+        </div>
         <Start ifon={this.changeButton} name = {this.giveName()}/>
-      </div>
+      </section>
     )
   }
 }
