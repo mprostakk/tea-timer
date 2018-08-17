@@ -74,17 +74,28 @@ class Timer extends Component {
   render () {
     return (
       <section className = "sec2">
+
+        <div>
+          <h3 class="currently-picked">
+            Currently picked
+          </h3>
+          <h1 class="text-mask" id={this.props.selected}>
+            {this.props.selected}
+          </h1>
+        </div>
+
         <div className="cont cont2">
           <TimeInfo time={teainfo[this.props.selected].time}/>
           <TempInfo temp={teainfo[this.props.selected].temp}/>
         </div>
-        <div>
-          <button onClick={this.startTimer}>Start</button>
-          <div>
+        <div className="timer">
+
+          <div className="">
             m: {this.state.time.m} s: {this.state.time.s}
           </div>
-        </div>
 
+        </div>
+        <button onClick={this.startTimer}>Start</button>
         {/* <Start ifon="" name = "Start"/> */}
       </section>
     )
