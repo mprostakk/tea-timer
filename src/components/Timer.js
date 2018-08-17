@@ -76,10 +76,10 @@ class Timer extends Component {
       <section className = "sec2">
 
         <div>
-          <h3 class="currently-picked">
+          <h3 className="currently-picked">
             Currently picked
           </h3>
-          <h1 class="text-mask" id={this.props.selected}>
+          <h1 className="text-mask" id={this.props.selected}>
             {this.props.selected}
           </h1>
         </div>
