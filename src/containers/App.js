@@ -25,9 +25,9 @@ class App extends Component {
     return (
       <div className="App">
         {/* <h1 className="App-title" >Herbata czeka</h1> */}
-        <div className="cont">
+        {/* <div className="cont">
           <h1 id="header">The only tea timer you need.</h1>
-        </div>
+        </div> */}
 
         <CheckTea selected = {this.state.selected} clickfunc = {this.handleClick}/>
         <Timer onRef={ref => (this.child = ref)} selected={this.state.selected} />
