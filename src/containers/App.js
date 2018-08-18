@@ -15,7 +15,7 @@ class App extends Component {
 
   handleClick(t) {
     this.setState({selected: t.target.innerHTML});
-    this.child.appUpdate();
+    // this.child.appUpdate();
   }
 
   compnentDidMount() {

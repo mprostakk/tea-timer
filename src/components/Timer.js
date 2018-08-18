@@ -10,66 +10,57 @@ class Timer extends Component {
     super(props);
 
     this.state = {
-      time: {},
-      seconds: 5
+      isOn: false,
+      time: 0,
     };
-    this.timer = 0;
-  }
-
-  secondsToTime = (secs) => {
-    let divisor_for_minutes = secs % (60*60);
-    let minutes = Math.floor(divisor_for_minutes / 60);
-
-    let divisor_for_seconds = divisor_for_minutes % 60;
-    let seconds = Math.ceil(divisor_for_seconds);
-
-    let obj = {
-      "m": minutes,
-      "s": seconds
-    };
-    return obj;
-  }
-
-  componentDidMount() {
-    let timeLeftVar = this.secondsToTime(this.state.seconds);
-    this.setState({ time: timeLeftVar })
-
-    this.props.onRef(this);
-  }
-
-  compnentWillUnmount() {
-    this.props.onRef(undefined);
+    this.interval = 0;
   }
 
   startTimer = () => {
-    if (this.timer === 0) {
-      this.timer = setInterval(this.countDown, 1000);
+    if(this.state.time !== 0 && this.state.isOn === false) {
+      this.interval = setInterval(() => {
+        if(this.state.time !== 0){
+          this.setState({
+            time: this.state.time - 1,
+          })
+          this.setState({isOn: true});
+        }
+        else {
+          this.stopTimer();
+        }
+      }, 1000);
     }
   }
 
-  countDown = () => {
-    let seconds = this.state.seconds - 1;
-    this.setState({
-      time: this.secondsToTime(seconds),
-      seconds: seconds,
-    })
-
-    if(seconds === 0) {
-      clearInterval(this.timer);
-    }
+  stopTimer = () => {
+    clearInterval(this.interval);
+    this.setState({isOn: false})
   }
 
-  appUpdate = () => {
-    clearInterval(this.timer);
-    this.timer = 0;
+  resetTimer = () => {
+    this.stopTimer();
     this.setState({
-      // time: this.secondsToTime(teainfo[this.props.selected].sec),
-      seconds: teainfo[this.props.selected.sec]
+      time: 20,
     })
-
-    // let timeLeftVar = this.secondsToTime((teainfo[this.props.selected.sec]));
-    // this.setState({ time: timeLeftVar })
   }
+
+  componentDidMount() {
+    this.setState({
+      time: 5,
+    })
+  }
+
+  // appUpdate = () => {
+  //   clearInterval(this.timer);
+  //   this.timer = 0;
+  //   this.setState({
+  //     // time: this.secondsToTime(teainfo[this.props.selected].sec),
+  //     seconds: teainfo[this.props.selected.sec]
+  //   })
+  //
+  //   // let timeLeftVar = this.secondsToTime((teainfo[this.props.selected.sec]));
+  //   // this.setState({ time: timeLeftVar })
+  // }
 
   render () {
     return (
@@ -88,14 +79,12 @@ class Timer extends Component {
           <TimeInfo time={teainfo[this.props.selected].time}/>
           <TempInfo temp={teainfo[this.props.selected].temp}/>
         </div>
-        <div className="timer">
-
-          <div className="">
-            m: {this.state.time.m} s: {this.state.time.s}
-          </div>
-
+        <div className="cont">
+            <h3>{this.state.time}</h3>
         </div>
         <button onClick={this.startTimer}>Start</button>
+        <button onClick={this.stopTimer}>Stop</button>
+        <button onClick={this.resetTimer}>Reset</button>
         {/* <Start ifon="" name = "Start"/> */}
       </section>
     )

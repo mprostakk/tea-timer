@@ -3,9 +3,9 @@ import React from 'react';
 const TimeInfo = ({time}) => {
   return (
     <div>
-      <h1>The perfect time is:</h1>
+      <h3>The perfect time is:</h3>
       <div className="temp">
-        <h3 className="info">{time}</h3>  
+        <h3 className="info">{time}</h3>
       </div>
     </div>
   )
