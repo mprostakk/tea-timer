@@ -134,7 +134,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 .button {
-  background: lightgreen;
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  opacity:1;
   border: 0;
   color: white;
   padding: 5px 40px;
@@ -145,26 +146,15 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 .button:hover {
-  color:white;
-  background: green;
+  opacity: 0.6;
 }
 
 .b-red {
-  background: red;
-  color: white;
-}
-
-.b-red:hover {
-  background: darkred;
+  background-image: linear-gradient(to right, #f78ca0 0%, #f9748f 19%, #fd868c 60%, #fe9a8b 100%);
 }
 
 .b-reset {
-  background: lightblue;
-  color: white;
-}
-
-.b-reset:hover {
-  background: blue;
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
 }
 
 .timer {
@@ -206,7 +196,7 @@ footer {
 
 .my-button:hover {
   transition: all 0.5s;
-  font-size: 1.7rem;
+  /* font-size: 1.7rem; */
 }
 
 .sec1 {
@@ -294,4 +284,8 @@ input::-moz-focus-outer {
 .time {
   font-size: 2rem;
   color: #5F5F5F;
+}
+
+.timer-container {
+  margin-top: 20px;
 }

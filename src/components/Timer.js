@@ -110,26 +110,28 @@ class Timer extends Component {
           <TimeInfo time={teainfo[this.props.selected].time}/>
           <TempInfo temp={teainfo[this.props.selected].temp}/>
         </div>
-        <div className="time" >
-          <h1 className="">{obj.m}:{obj.s}</h1>
 
-          <Display onSecondsChanged={this.onSecondsChanged}
-            time={this.state.time} />
-        </div>
+        <div className="timer-container">
+          <div className="time" >
+            <h1 className="">{obj.m}:{obj.s}</h1>
 
-        {
-          !this.state.isOn && <button className="button" onClick={this.startTimer}>Start</button>
-        }
+            <Display onSecondsChanged={this.onSecondsChanged}
+              time={this.state.time} />
+          </div>
 
-        {
-          this.state.isOn && <button className="button b-red" onClick={this.stopTimer}>Stop</button>
-        }
+          {
+            !this.state.isOn && <button className="button" onClick={this.startTimer}>Start</button>
+          }
 
-        {
-          !(this.state.time === teainfo[this.props.selected].sec ) && !(this.state.isOn) &&
-          <button className="button b-reset" onClick={this.resetTimer}>Reset</button>
-        }
+          {
+            this.state.isOn && <button className="button b-red" onClick={this.stopTimer}>Stop</button>
+          }
 
+          {
+            !(this.state.time === teainfo[this.props.selected].sec ) && !(this.state.isOn) &&
+            <button className="button b-reset" onClick={this.resetTimer}>Reset</button>
+          }
+      </div>
 
       </section>
     )
