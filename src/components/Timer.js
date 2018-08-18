@@ -22,6 +22,7 @@ class Timer extends Component {
           this.setState({
             time: this.state.time - 1,
           })
+
           this.setState({isOn: true});
         }
         else {
@@ -29,6 +30,28 @@ class Timer extends Component {
         }
       }, 1000);
     }
+  }
+
+  addZero = (time) => {
+    let newTime = time.toString();
+    if(time < 10) {
+      newTime = "0" + newTime;
+    }
+    return newTime;
+  }
+
+  secondsToTime = (secs) => {
+    let divisor_for_minutes = secs % (60*60);
+    let minutes = Math.floor(divisor_for_minutes / 60);
+
+    let divisor_for_seconds = divisor_for_minutes % 60;
+    let seconds = Math.ceil(divisor_for_seconds);
+
+    let obj = {
+      "m": this.addZero(minutes),
+      "s": this.addZero(seconds)
+    };
+    return obj;
   }
 
   stopTimer = () => {
@@ -60,6 +83,8 @@ class Timer extends Component {
   }
 
   render () {
+    let obj = this.secondsToTime(this.state.time)
+
     return (
       <section className = "sec2">
 
@@ -77,10 +102,11 @@ class Timer extends Component {
           <TempInfo temp={teainfo[this.props.selected].temp}/>
         </div>
         <div className="cont">
-            <h3>{this.state.time}</h3>
+          <h3>{obj.m}:{obj.s}</h3>
         </div>
 
-        <Display onSecondsChanged={this.onSecondsChanged} time={this.state.time} />
+        <Display onSecondsChanged={this.onSecondsChanged}
+          time={this.state.time} />
 
         <button onClick={this.startTimer}>Start</button>
         <button onClick={this.stopTimer}>Stop</button>
