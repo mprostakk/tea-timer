@@ -11,8 +11,13 @@ class Display extends React.Component {
 
   render() {
     return (
-      <div>
-        <input type="range" min="1" max="600" onChange={this.onChange} value={this.props.time} />
+      <div className="slidecontainer">
+        <input className="slider"
+          type="range"
+          min="1"
+          max="600"
+          onChange={this.onChange}
+          value={this.props.time} />
       </div>
     )
   }

@@ -82,6 +82,14 @@ class Timer extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.stopTimer();
+    this.setState({
+      time: teainfo[nextProps.selected].sec,
+    })
+    console.log(nextProps)
+  }
+
   render () {
     let obj = this.secondsToTime(this.state.time)
 
