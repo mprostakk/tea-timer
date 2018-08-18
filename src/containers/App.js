@@ -10,28 +10,18 @@ class App extends Component {
     this.state = {
       selected: 'Black',
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(t) {
+  handleClick = (t) => {
     this.setState({selected: t.target.innerHTML});
     // this.child.appUpdate();
-  }
-
-  compnentDidMount() {
   }
 
   render() {
     return (
       <div className="App">
-        {/* <h1 className="App-title" >Herbata czeka</h1> */}
-        {/* <div className="cont">
-          <h1 id="header">The only tea timer you need.</h1>
-        </div> */}
-
         <CheckTea selected = {this.state.selected} clickfunc = {this.handleClick}/>
-        <Timer onRef={ref => (this.child = ref)} selected={this.state.selected} />
-
+        <Timer selected={this.state.selected} />
         <footer>
             <p>
               Check this project out on

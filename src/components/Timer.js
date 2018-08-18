@@ -1,8 +1,6 @@
 import React , {Component} from 'react';
-// import Start from './Start';
 import TimeInfo from './TimeInfo';
 import TempInfo from './TempInfo';
-import './Timer.css';
 import teainfo from '../teainfo';
 
 class Timer extends Component {
@@ -50,18 +48,6 @@ class Timer extends Component {
     })
   }
 
-  // appUpdate = () => {
-  //   clearInterval(this.timer);
-  //   this.timer = 0;
-  //   this.setState({
-  //     // time: this.secondsToTime(teainfo[this.props.selected].sec),
-  //     seconds: teainfo[this.props.selected.sec]
-  //   })
-  //
-  //   // let timeLeftVar = this.secondsToTime((teainfo[this.props.selected.sec]));
-  //   // this.setState({ time: timeLeftVar })
-  // }
-
   render () {
     return (
       <section className = "sec2">
@@ -85,7 +71,6 @@ class Timer extends Component {
         <button onClick={this.startTimer}>Start</button>
         <button onClick={this.stopTimer}>Stop</button>
         <button onClick={this.resetTimer}>Reset</button>
-        {/* <Start ifon="" name = "Start"/> */}
       </section>
     )
   }

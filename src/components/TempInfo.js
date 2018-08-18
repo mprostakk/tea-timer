@@ -8,7 +8,6 @@ const TempInfo = ({temp}) => {
         <h3 className = "info">{temp}</h3>
       </div>
     </div>
-
   )
 }
 
