@@ -2,6 +2,7 @@ import React , {Component} from 'react';
 import TimeInfo from './TimeInfo';
 import TempInfo from './TempInfo';
 import teainfo from '../teainfo';
+import Display from './Display'
 
 class Timer extends Component {
   constructor(props) {
@@ -48,6 +49,16 @@ class Timer extends Component {
     })
   }
 
+  onSecondsChanged = (seconds) => {
+    seconds = parseInt(seconds);
+
+    if(seconds <= 359999) {
+      this.setState({time: seconds})
+    } else {
+      this.setState({time: 0})
+    }
+  }
+
   render () {
     return (
       <section className = "sec2">
@@ -68,6 +79,9 @@ class Timer extends Component {
         <div className="cont">
             <h3>{this.state.time}</h3>
         </div>
+
+        <Display onSecondsChanged={this.onSecondsChanged} time={this.state.time} />
+
         <button onClick={this.startTimer}>Start</button>
         <button onClick={this.stopTimer}>Stop</button>
         <button onClick={this.resetTimer}>Reset</button>
