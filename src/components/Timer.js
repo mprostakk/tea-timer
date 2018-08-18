@@ -15,6 +15,11 @@ class Timer extends Component {
     this.interval = 0;
   }
 
+  makeSoundAlert = () => {
+    // console.log(this.audio)
+    this.audio.play();
+  }
+
   startTimer = () => {
     if(this.state.time !== 0 && this.state.isOn === false) {
                 this.setState({isOn: true});
@@ -23,11 +28,10 @@ class Timer extends Component {
           this.setState({
             time: this.state.time - 1,
           })
-
-
         }
         else {
           this.stopTimer();
+          this.makeSoundAlert();
         }
       }, 1000);
     }
@@ -96,6 +100,10 @@ class Timer extends Component {
 
     return (
       <section className = "sec2">
+
+        <audio ref={(audio) => {this.audio = audio}}>
+          <source scr="alarm.mp3" type="audio/mpeg" ></source>
+        </audio>
 
         <div>
           <h3 className="currently-picked">
