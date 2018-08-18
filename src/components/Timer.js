@@ -17,13 +17,14 @@ class Timer extends Component {
 
   startTimer = () => {
     if(this.state.time !== 0 && this.state.isOn === false) {
+                this.setState({isOn: true});
       this.interval = setInterval(() => {
         if(this.state.time !== 0){
           this.setState({
             time: this.state.time - 1,
           })
 
-          this.setState({isOn: true});
+
         }
         else {
           this.stopTimer();
@@ -109,16 +110,27 @@ class Timer extends Component {
           <TimeInfo time={teainfo[this.props.selected].time}/>
           <TempInfo temp={teainfo[this.props.selected].temp}/>
         </div>
-        <div className="cont">
-          <h3>{obj.m}:{obj.s}</h3>
+        <div className="time" >
+          <h1 className="">{obj.m}:{obj.s}</h1>
+
+          <Display onSecondsChanged={this.onSecondsChanged}
+            time={this.state.time} />
         </div>
 
-        <Display onSecondsChanged={this.onSecondsChanged}
-          time={this.state.time} />
+        {
+          !this.state.isOn && <button className="button" onClick={this.startTimer}>Start</button>
+        }
 
-        <button onClick={this.startTimer}>Start</button>
-        <button onClick={this.stopTimer}>Stop</button>
-        <button onClick={this.resetTimer}>Reset</button>
+        {
+          this.state.isOn && <button className="button b-red" onClick={this.stopTimer}>Stop</button>
+        }
+
+        {
+          !(this.state.time === teainfo[this.props.selected].sec ) && !(this.state.isOn) &&
+          <button className="button b-reset" onClick={this.resetTimer}>Reset</button>
+        }
+
+
       </section>
     )
   }
