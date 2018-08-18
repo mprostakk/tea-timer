@@ -62,13 +62,13 @@ class Timer extends Component {
   resetTimer = () => {
     this.stopTimer();
     this.setState({
-      time: 20,
+      time: teainfo[this.props.selected].sec,
     })
   }
 
   componentDidMount() {
     this.setState({
-      time: 5,
+      time: teainfo[this.props.selected].sec,
     })
   }
 
