@@ -78,7 +78,7 @@ class Timer extends Component {
   }
 
   onSecondsChanged = (seconds) => {
-    seconds = parseInt(seconds);
+    seconds = parseInt(seconds, 10);
 
     if(seconds <= 359999) {
       this.setState({time: seconds})
@@ -92,7 +92,7 @@ class Timer extends Component {
     this.setState({
       time: teainfo[nextProps.selected].sec,
     })
-    console.log(nextProps)
+    // console.log(nextProps)
   }
 
   render () {
