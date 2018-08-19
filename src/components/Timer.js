@@ -12,11 +12,13 @@ class Timer extends Component {
       isOn: false,
       time: 0,
     };
+
+    this.url = "http://dight310.byu.edu/media/audio/FreeLoops.com/5/5/Old%20Alarm%20Clock-14670-Free-Loops.com.mp3";
+    this.audio = new Audio(this.url);
     this.interval = 0;
   }
 
   makeSoundAlert = () => {
-    // console.log(this.audio)
     this.audio.play();
   }
 
@@ -92,7 +94,6 @@ class Timer extends Component {
     this.setState({
       time: teainfo[nextProps.selected].sec,
     })
-    // console.log(nextProps)
   }
 
   render () {
@@ -100,11 +101,6 @@ class Timer extends Component {
 
     return (
       <section className = "sec2">
-
-        <audio ref={(audio) => {this.audio = audio}}>
-          <source scr="alarm.mp3" type="audio/mpeg" ></source>
-        </audio>
-
         <div>
           <h3 className="currently-picked">
             Currently picked
@@ -140,7 +136,6 @@ class Timer extends Component {
             <button className="button b-reset" onClick={this.resetTimer}>Reset</button>
           }
       </div>
-
       </section>
     )
   }
